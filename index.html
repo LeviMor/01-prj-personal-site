@@ -1,11 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Personal Site</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- The head section contains information about the page, like its title and settings -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Levi Morris | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Import Font Awesome classic icon library for using icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Simple style to hide sections */
+    .hidden { display: none; }
+
+    /* Make the navigation bar stick to the top and look like a bar */
+    nav {
+      background-color: #222;
+      padding: 0;
+      position: fixed; /* Keep the nav bar at the top */
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    nav ul li {
+      display: inline-block;
+      margin: 0;
+    }
+    nav ul li a {
+      display: inline-block;
+      padding: 16px 24px;
+      color: #ffcc00;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav ul li a:hover {
+      background-color: #444;
+      color: #fff;
+    }
+
+    /* Make the hero section fill the entire screen */
+    #home {
+      min-height: 100vh; /* Take up at least the full viewport height */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #1b2a41;
+      color: white;
+      /* Add padding to avoid content being hidden behind nav */
+      padding-top: 80px;
+      box-sizing: border-box;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    /* Add some spacing for other sections so they're not hidden behind nav */
+    section:not(#home) {
+      padding-top: 100px;
+    }
+  </style>
 </head>
 <body>
-  <!-- Add your HTML content here -->
+  <!-- Navigation bar for moving between sections -->
+  <nav>
+    <ul>
+      <li><a href="#" onclick="showSection('home')">Home</a></li>
+      <li><a href="#" onclick="showSection('skills')">Skills</a></li>
+      <li><a href="#" onclick="showSection('about')">About Me</a></li>
+      <li><a href="#" onclick="showSection('projects')">Projects</a></li>
+    </ul>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home">
+    <header class="hero">
+      <h1>Levi Morris</h1>
+      <p>Computer science student at University of Cincinnati | Aspiring game developer</p>
+    </header>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="hidden">
+    <!-- Header with icon for Skills -->
+    <h2>
+      <i class="fas fa-tools" aria-hidden="true"></i>
+      Skills
+    </h2>
+    <!-- Compiled Languages -->
+    <div class="skills-category">
+      <h3>Compiled Languages</h3>
+      <p>Below is the list of compiled programming languages with which I am accustomed, using them to write efficient programs as a result of my time at UC.</p>
+      <ul>
+        <li>C++</li>
+        <li>C</li>
+      </ul>
+    </div>
+    <!-- Interpreted Languages -->
+    <div class="skills-category">
+      <h3>Interpreted Languages</h3>
+      <p>Next, are the interpreted languages with which I have familiarity, I have used these to create several websites and smaller scale personal projects.</p>
+      <ul>
+        <li>Python</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Javascript</li>
+      </ul>
+    </div>
+    <!-- Game Development -->
+    <div class="skills-category">
+      <h3>Game Development</h3>
+      <p>Then, there's the list of tools I've learned to utilize in order to reach my long term goals of a career in game development.</p>
+      <ul>
+        <li>Godot Game Engine</li>
+        <li>GDScript</li>
+      </ul>
+    </div>
+    <!-- Other -->
+    <div class="skills-category">
+      <h3>Other</h3>
+      <p>Finally, a few miscellaneous skills including other programming languages I've worked with and general skills.</p>
+      <ul>
+        <li>Assembly</li>
+        <li>Project Management</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="hidden">
+    <!-- Header with icon for About Me -->
+    <h2>
+      <i class="fas fa-user" aria-hidden="true"></i>
+      About Me
+    </h2>
+    <p>
+      Hello! My name is Levi Morris, I'm an undergraduate student studying Computer Science at the University of Cincinnati and aspiring to one day work in game development, even
+      founding my own fledgling studio Bat Byte Games. I have experience in several different programming languages including C++, Python, and Javascript, have experience working
+      in teams big and small during my college career, and am an exceptional problem solver.
+    </p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="hidden">
+    <!-- Header with icon for Projects -->
+    <h2>
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      Projects
+    </h2>
+    <div class="project-card">
+      <h3>One-Armed Warrior</h3>
+      <p>
+        An up-and-coming indie game title under development by a small team of programmers, artists, and musicians under the banner of Bat Byte Games, an indie game studio of 
+        which I am the founder. The game is a turn-based dungeon crawler roguelite with a retro 16-bit aesthetic and follows an old worn adventurer who saves the realm from a
+        frightful demon lord. In terms of gameplay, One-Handed Warrior focuses on turn based strategy, resource management and decision making, with a large degree of
+        replayability. Lastly, aesthetically, the game boasts a classic 16-bit aesthetic with exciting music, beautifully animated sprites and crunchy sound effects.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Info Section: always visible and always at the bottom -->
+  <section id="contact-info">
+    <!-- Contact Info Heading -->
+    <h2>Contact Information</h2>
+    <!-- Contact details for the student (no hyperlinks, just text) -->
+    <p>Email: levi.morris@email.com</p>
+    <p>LinkedIn: linkedin.com/in/levimorris</p>
+  </section>
+
+  <!-- Simple JavaScript to switch sections -->
+  <script>
+    // This function shows the selected section and hides the others (except contact info)
+    function showSection(sectionId) {
+      // Get all sections except contact-info
+      var sections = document.querySelectorAll('section:not(#contact-info)');
+      // Hide all main sections
+      sections.forEach(function(section) {
+        section.classList.add('hidden');
+      });
+      // Show the selected section
+      document.getElementById(sectionId).classList.remove('hidden');
+      // No code to change contact info background color
+    }
+    // Show the Home section by default when the page loads
+    showSection('home');
+  </script>
 </body>
 </html>
